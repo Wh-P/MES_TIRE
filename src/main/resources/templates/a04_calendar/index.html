@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>생산계획관리</title>
+    <link href="/a00_com/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="/a00_com/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="a00_com/lib/main.css" rel="stylesheet" />
+    <link href="a00_com/bootstrap.min.css" rel="stylesheet" >
+    <script src="a00_com/jquery.min.js"></script>
+	<script src="a00_com/bootstrap.min.js"></script>
+	<script src="a00_com/lib/main.js"></script>
+  <script>
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+	var toDay = new Date();
+	// 2024-12-03T12:30:25 ==> ISO  표준시간 표현방법: fullCalendar api 
+	//alert(toDay.toISOString())
+	// 시간은 필요없고, 날자만 추출하려면?
+    // toDay.toISOString().split("T") ["2024-12-03","12:30:25"] 배열로 구분하여 담긴다.
+    // 최종적으로 활용할 날짜만 추출하기 위해..
+	console.log(toDay.toISOString().split("T")[0])
+	var showDate = toDay.toISOString().split("T")[0];
+	  
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      },
+      initialDate: showDate,
+      navLinks: true, // can click day/week names to navigate views
+      selectable: true,
+      selectMirror: true,
+      select: function(event) {
+		$("#showModal").click() // 입력을 위한 모달이 로딩되게 처리..
+		$("#regBtn").show();$("#uptBtn").hide();$("#delBtn").hide()
+        $("[name=backgroundColor]").show();
+        $("[name=textColor]").show();
+        $("[name=id]").attr("readonly", false);
+		$("#modalTitle").text("생산일정 등록")
+		
+		console.log(event)
+		console.log(event.start)
+		console.log(event.end)
+		console.log(event.allDay)
+		
+		$("[name=start]").val(event.startStr)
+		$("[name=end]").val(event.endStr)
+		$("[name=allDay]").val(event.allDay?1:0)
+		addForm(event, 'I')
+		/*
+		 title 
+		 writer allDay 
+		 start end 
+		 content 
+		 backgroundColor textColor 
+		 urllink
+        var title = prompt('Event Title:');
+        if (title) {
+          calendar.addEvent({
+            title: title, // 타이틀
+            start: arg.start, // 시작일자(Date) : 시간을 포함.
+            end: arg.end, // 종료일자(Date)
+            allDay: arg.allDay // 전체일정(boolean)
+          })
+          
+        }
+        */
+        calendar.unselect()
+      },
+      eventClick: function(arg) {
+  		$("#showModal").click() // 입력을 위한 모달이 로딩되게 처리..
+		
+		console.log(arg.event.extendedProps.source)
+		  if (arg.event.extendedProps.source === "invoice") {
+        // getCalListByInvoice에서 가져온 데이터는 수정/삭제 버튼 숨기기
+        $("#modalTitle").text("발주일정 확인")
+        $("#uptBtn").hide();
+        $("#delBtn").hide();
+        $("#regBtn").hide();
+        $("[name=backgroundColor]").hide();
+        $("[name=textColor]").hide();
+        $("[name=id]").attr("readonly", true);
+    } else {
+        // 다른 데이터는 수정/삭제 버튼 보이기
+        $("#modalTitle").text("생산일정 수정")
+        $("#uptBtn").show();
+        $("#delBtn").show();
+        $("[name=backgroundColor]").show();
+        $("[name=textColor]").show();
+        $("[name=id]").attr("readonly", true);
+        
+    }
+		
+		
+		
+		
+
+  		
+		addForm(arg.event, 'D')
+		//console.log(arg)
+		console.log("# 일정 내용 #")
+		console.log(arg.event)
+
+		/*
+        if (confirm('Are you sure you want to delete this event?')) {
+          arg.event.remove() // 일정이 삭제 처리..
+        }
+		*/
+      },
+      editable: true,
+      dayMaxEvents: true, // allow "more" link when too many events
+      events:function(info, successCallback, failureCallback){
+    	  $.when(
+    		$.ajax({ url: "getCalListByInvoice", dataType: "json" }),
+    	    $.ajax({ url: "getCalList", dataType: "json" })
+    		    ).done(function(invoiceData, calData) {
+    		        const combinedData = [ ...invoiceData[0].map(event => ({ ...event, source: "invoice" })),
+    		            ...calData[0].map(event => ({ ...event, source: "calendar" }))]; // 데이터 병합
+    		        console.log("병합된 데이터:", combinedData);
+    		        successCallback(combinedData);
+    		        
+    		    }).fail(function(err) {
+    		        console.error("데이터 호출 실패:", err);
+    		        failureCallback(err);
+    		    });
+	  }
+    });
+
+    calendar.render();
+    
+    $("#regBtn").click(function(){
+		if(confirm("일정 등록 하시겠습니까?")){
+			$("[name='id']").attr("type", "show");
+			$.ajax({
+				url:"insertCalList",
+				type:"post",
+				data:$("#frm").serialize(),
+				dataType:"text",
+				success:function(data){
+					  console.log("AJAX 응답:", data);
+		                alert(data); // msg가 없으면 기본 메시지 출력
+		                calendar.refetchEvents()
+		                $('#exampleModalCenter').modal('hide')
+				},
+				error:function(data){
+					console.log(data)
+				}
+			})
+		}
+    })
+     $("#uptBtn").click(function(){
+		if(confirm("수정 하시겠습니까?")){
+			$("[name='id']").attr("type", "hidden");
+			$.ajax({
+				url:"uptCal",
+				type:"post",
+				data:$("#frm").serialize(),
+				dataType:"text",
+				success:function(data){
+					  console.log(data);
+		                alert("수정성공"); // msg가 없으면 기본 메시지 출력
+		                calendar.refetchEvents()
+		                
+						$('#exampleModalCenter').modal('hide')
+		            
+				},
+				error:function(data){
+					console.log(data)
+				}
+			})
+		}
+    })
+
+     $("#delBtn").click(function(){
+		if(confirm("삭제 하시겠습니까?")){
+			$("[name='id']").attr("type", "show");
+			$.ajax({
+				url:"delCal",
+				type:"post",
+				data:$("#frm").serialize(),
+				dataType:"text",
+				success:function(data){
+					  console.log(data);
+		                alert("삭제성공"); // msg가 없으면 기본 메시지 출력
+		               
+		                $('#exampleModalCenter').modal('hide')
+		               calendar.refetchEvents()
+				},
+				error:function(data){
+					console.log(data)
+				}
+			})
+		}
+    })
+  });
+  // 등록/상세 따른 모달창의 데이터 입력 form형식 처리
+  // 등록 addForm(event, "I"),  일정클릭시 addForm(arg.event, "D")
+  function addForm(event, proc){
+	$("#frm")[0].reset() // form데이터 초기화
+	$("[name=start]").val(event.startStr)
+	if(event.end==null){  // 마지막날짜가 없는 경우
+		$("[name=end]").val(event.startStr)
+    }else{
+    	$("[name=end]").val(event.endStr)
+    }
+	$("[name=allDay]").val(event.allDay?1:0);// event.allDay true일 때, 1 그외는 0
+	if(proc=="D"){
+        $("[name=id]").val(event.id)
+		$("[name=title]").val(event.title)
+		$("[name=backgroundColor]").val(event.backgroundColor)
+		$("[name=textColor]").val(event.textColor)
+		$("[name=content]").val(event.extendedProps.content)
+		$("[name=writer]").val(event.extendedProps.writer)
+		$("[name=combine]").val(event.extendedProps.combine)
+		$("[name=urllink]").val(event.extendedProps.urllink)
+	}
+  }
+</script>
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+  
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/main">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Wind tire</div>
+            </a>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="/SO_Controller">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>생산목표</span></a>
+            </li>
+
+            <hr class="sidebar-divider">
+ <div class="sidebar-heading">
+                사원관리
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/mesListHtml1">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>사원정보</span></a>
+            </li>  
+            <hr class="sidebar-divider">
+
+            <div class="sidebar-heading">
+                생산
+            </div>
+
+            <li class="nav-item active">
+                <a class="nav-link" href="/SO_Scheduler">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>생산계획 관리</span></a>
+            </li>
+
+            <hr class="sidebar-divider">
+
+            <div class="sidebar-heading">
+                발주관리
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/SO_invoice">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>완제품 발주관리</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="/SO_purorder">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>부자재 발주관리</span></a>
+            </li>
+
+            <hr class="sidebar-divider d-none d-md-block">
+            <div class="sidebar-heading">
+                공정관리
+            </div>
+             <li class="nav-item">
+                <a class="nav-link" href="/board">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>작업 지시사항 게시판</span></a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="/color">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>공정1 모니터링</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/color2">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>공정2 모니터링</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/getDetail">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>세부사항</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/getDetail2">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>세부사항2</span></a>
+            </li>
+             <hr class="sidebar-divider d-none d-md-block">
+            <div class="sidebar-heading">
+                품질검사
+            </div>
+             <li class="nav-item">
+                <a class="nav-link" href="/visualtest">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>외관검사</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/centertest">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>중심축검사</span></a>
+            </li>
+                        
+            <li class="nav-item">
+                <a class="nav-link" href="performancetest">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>성능테스트</span></a>
+            </li>
+                         <li class="nav-item">
+                <a class="nav-link" href="resultlist">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>품질검사 결과</span></a>
+            </li> 
+            <hr class="sidebar-divider d-none d-md-block">
+            <div class="sidebar-heading">
+                불량품 확인 게시판
+            </div>            
+            <li class="nav-item">
+                <a class="nav-link" href="/ErrorListHTML">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>불량품 게시판</span></a>
+            </li> 
+			<hr class="sidebar-divider d-none d-md-block">                        
+			<div class="sidebar-heading">
+	           창고관리
+	       </div>
+           <li class="nav-item ">
+               <a class="nav-link" href="lot">
+                   <i class="fas fa-fw fa-table"></i>
+                   <span>창고 현상황</span></a>
+           </li>
+           <li class="nav-item">
+               <a class="nav-link" href="bound">
+                   <i class="fas fa-fw fa-table"></i>
+                   <span>출고내역</span></a>
+           </li>                         
+            <div class="text-center d-none d-md-inline">
+               
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter">3+</span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Alerts Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 12, 2019</div>
+                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-success">
+                                            <i class="fas fa-donate text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 7, 2019</div>
+                                        $290.29 has been deposited into your account!
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 2, 2019</div>
+                                        Spending Alert: We've noticed unusually high spending for your account.
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Messages -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-envelope fa-fw"></i>
+                                <!-- Counter - Messages -->
+                                <span class="badge badge-danger badge-counter">7</span>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="messagesDropdown">
+                                <h6 class="dropdown-header">
+                                    Message Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
+                                            alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                                            problem I've been having.</div>
+                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                            alt="...">
+                                        <div class="status-indicator"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">I have the photos that you ordered last month, how
+                                            would you like them sent to you?</div>
+                                        <div class="small text-gray-500">Jae Chun · 1d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
+                                            alt="...">
+                                        <div class="status-indicator bg-warning"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Last month's report looks great, I am very happy with
+                                            the progress so far, keep up the good work!</div>
+                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                            alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
+                                            told me that people say this to all dogs, even if they aren't good...</div>
+                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <img class="img-profile rounded-circle"
+                                    src="img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                      <div id='calendar' ></div>
+                    <div id="showModal"  data-toggle="modal" data-target="#exampleModalCenter"></div> 
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">타이틀</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!-- 
+ 		 title 
+		 writer allDay 
+		 start end 
+		 content 
+		 backgroundColor textColor 
+		 urllink     
+       -->
+      <div class="modal-body">
+		<form id="frm" class="form"  method="post">
+		 	<input type="text"  class="form-control" placeholder="발주 아이디" name="id" value="0"/>
+	     <div class="row">
+	      <div class="col">
+	        <input type="text" class="form-control" placeholder="일정명 입력" name="title">
+	      </div>
+	     </div>
+	     <div class="row">
+	      <div class="col">
+	        <input type="text" class="form-control" placeholder="작성자 입력" name="writer">
+	      </div>
+	      <div class="col">
+	      	<select class="form-control"  name="allDay" >
+	      		<option value="1">종일</option>
+	      		<option value="0">시간</option>
+	      	</select>
+	      </div>
+	     </div> 	     
+	     <div class="row">
+	      <div class="col">
+	        <input type="text" class="form-control" placeholder="시작일시" name="start">
+	      </div>
+	      <div class="col">
+	      	<input type="text" class="form-control" placeholder="종료일시" name="end">
+	      </div>	      
+	     </div>	  
+	     <div class="row">
+	      <div class="col">
+	      	<textarea name="content"  placeholder="내용입력"  rows="5" cols="20" class="form-control" ></textarea>
+	      </div>
+	     </div>	 
+	     <div class="row">
+	      <div class="col">
+	        <input type="color" class="form-control" name="backgroundColor" value="#0099cc">
+	      </div>
+	      <div class="col">
+	      	<input type="color" class="form-control" name="textColor"  value="#ccffff">
+	      </div>	      
+	     </div>	 
+	   
+	    </form> 
+	    <script>
+	       function goPage(page){
+			if(confirm("해당 페이지로 이동 하시겠습니까?")){
+				//새로운 창으로 이동 처리.
+				window.open(page,"","")
+			}
+	       }
+	    </script>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" id="regBtn">등록</button>
+        <button type="button" class="btn btn-primary" id="uptBtn">수정</button>
+        <button type="button" class="btn btn-warning" id="delBtn">삭제</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>   
+         
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; 2조 MES-WIND TIRE</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+
+</body>
+
+</html>

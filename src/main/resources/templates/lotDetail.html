@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<style>
+	tbody tr:hover{
+		background-color: lightgray;
+	}
+	.big{
+		max-width : 90% !important;
+		width:90% !important;
+	}
+	.input-group-text{width:100%;background-color:linen;
+		color:black;font-weight:bolder;}
+	.input-group-prepend{width:20%;}
+	#chatArea{
+		width:80%;height:200px;overflow-y:auto;text-align:left;
+		border:1px solid green;
+	}
+</style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>WindTire 자재관리</title>
+
+    <!-- Custom fonts for this template -->
+    <link href="a00_com/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="a00_com/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this page -->
+    <link href="a00_com/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">_
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+		<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+		           <!-- Sidebar - Brand -->
+		            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/main">
+		                <div class="sidebar-brand-icon rotate-n-15">
+		                    <i class="fas fa-laugh-wink"></i>
+		                </div>
+		                <div class="sidebar-brand-text mx-3">Wind tire</div>
+		            </a>
+		            <!-- Divider -->
+		            <hr class="sidebar-divider my-0">
+
+
+		           <li class="nav-item">
+                <a class="nav-link" href="/SO_Controller">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>생산목표</span></a>
+            </li>
+
+            <hr class="sidebar-divider">
+ <div class="sidebar-heading">
+                사원관리
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/mesListHtml1">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>사원정보</span></a>
+            </li>  
+            <hr class="sidebar-divider">
+
+            <div class="sidebar-heading">
+                생산
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/SO_Scheduler">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>생산계획 관리</span></a>
+            </li>
+
+            <hr class="sidebar-divider">
+
+            <div class="sidebar-heading">
+                발주관리
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/SO_invoice">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>완제품 발주관리</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="/SO_purorder">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>부자재 발주관리</span></a>
+            </li>
+
+            <hr class="sidebar-divider d-none d-md-block">
+            <div class="sidebar-heading">
+                공정관리
+            </div>
+             <li class="nav-item">
+                <a class="nav-link" href="/board">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>작업 지시사항 게시판</span></a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="/color">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>공정1 모니터링</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/color2">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>공정2 모니터링</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/getDetail">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>세부사항</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/getDetail2">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>세부사항2</span></a>
+            </li>
+             <hr class="sidebar-divider d-none d-md-block">
+            <div class="sidebar-heading">
+                품질검사
+            </div>
+             <li class="nav-item">
+                <a class="nav-link" href="/visualtest">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>외관검사</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/centertest">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>중심축검사</span></a>
+            </li>
+                        
+            <li class="nav-item">
+                <a class="nav-link" href="performancetest">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>성능테스트</span></a>
+            </li>
+                         <li class="nav-item">
+                <a class="nav-link" href="resultlist">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>품질검사 결과</span></a>
+            </li> 
+            <hr class="sidebar-divider d-none d-md-block">
+            <div class="sidebar-heading">
+                불량품 확인 게시판
+            </div>            
+            <li class="nav-item">
+                <a class="nav-link" href="/ErrorListHTML">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>불량품 게시판</span></a>
+            </li> 
+			<hr class="sidebar-divider d-none d-md-block">                        
+			<div class="sidebar-heading">
+	           창고관리
+	       </div>
+           <li class="nav-item ">
+               <a class="nav-link" href="lot">
+                   <i class="fas fa-fw fa-table"></i>
+                   <span>창고 현상황</span></a>
+           </li>
+           <li class="nav-item">
+               <a class="nav-link" href="bound">
+                   <i class="fas fa-fw fa-table"></i>
+                   <span>출고내역</span></a>
+           </li>
+		           <li class="nav-item active">
+		               <a class="nav-link" href="#">
+		                   <i class="fas fa-fw fa-table"></i>
+		                   <span>창고 세부사항</span></a>
+		           </li>
+		           <div class="text-center d-none d-md-inline">
+		               <button class="rounded-circle border-0" id="sidebarToggle"></button>
+		           </div>
+		            
+
+		        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <form class="form-inline">
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                    </form>
+
+                    <!-- 툴바(헤드에) Search -->
+                    <form
+                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="number" class="form-control bg-light border-0 small" placeholder="Search for..."
+                                aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            value="Search for" aria-label="Search"
+                                            aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Alerts -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-bell fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                                <span class="badge badge-danger badge-counter">3+</span>
+                            </a>
+                            <!-- Dropdown - Alerts -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="alertsDropdown">
+                                <h6 class="dropdown-header">
+                                    Alerts Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-primary">
+                                            <i class="fas fa-file-alt text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 12, 2019</div>
+                                        <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-success">
+                                            <i class="fas fa-donate text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 7, 2019</div>
+                                        $290.29 has been deposited into your account!
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="mr-3">
+                                        <div class="icon-circle bg-warning">
+                                            <i class="fas fa-exclamation-triangle text-white"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="small text-gray-500">December 2, 2019</div>
+                                        Spending Alert: We've noticed unusually high spending for your account.
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+                            </div>
+                        </li>
+
+                        <!-- Nav Item - Messages -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-envelope fa-fw"></i>
+                                <!-- Counter - Messages -->
+                                <span class="badge badge-danger badge-counter">7</span>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="messagesDropdown">
+                                <h6 class="dropdown-header">
+                                    Message Center
+                                </h6>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_1.svg"
+                                            alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div class="font-weight-bold">
+                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a
+                                            problem I've been having.</div>
+                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_2.svg"
+                                            alt="...">
+                                        <div class="status-indicator"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">I have the photos that you ordered last month, how
+                                            would you like them sent to you?</div>
+                                        <div class="small text-gray-500">Jae Chun · 1d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="img/undraw_profile_3.svg"
+                                            alt="...">
+                                        <div class="status-indicator bg-warning"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Last month's report looks great, I am very happy with
+                                            the progress so far, keep up the good work!</div>
+                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                    <div class="dropdown-list-image mr-3">
+                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
+                                            alt="...">
+                                        <div class="status-indicator bg-success"></div>
+                                    </div>
+                                    <div>
+                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone
+                                            told me that people say this to all dogs, even if they aren't good...</div>
+                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <img class="img-profile rounded-circle"
+                                    src="a00_com/img/undraw_profile.svg">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800" id="lothead">자재 세부사항</h1>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4"  id="listtable">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary" id="lotlist">material Detail</h6>
+                        </div>
+                        <form id="matFrm">
+                        <div class="card-body mat">
+                       	<div class="input-group mb-3 ">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">자재id</span>
+							</div>
+							<input name="materialid" class="form-control" readonly/>
+						</div>
+						<div class="input-group mb-3 ">
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">자재타입</span>
+							</div>
+							<input name="mname" class="form-control" />
+						</div>	
+						<div class="input-group mb-3 ">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">단위</span>
+							</div>
+							<input name="unit" class="form-control" />
+						</div>	
+						<div class="input-group mb-3 ">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">안전수량</span>
+							</div>
+							<input name="safety" class="form-control" />
+						</div>	
+						<div class="input-group mb-3 ">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">최종수정일</span>
+							</div>
+							<input name="matdate" class="form-control" readonly/>
+						</div>	
+						<button type="button" class="btn btn-success btn-circle" id="uptMatBtn"><i class="fas fa-check"></i></button>
+						<button type="button" class="btn btn-danger btn-circle" id="delMatBtn"><i class="fas fa-trash"></i></button>
+						</div>
+						</form>
+						<form id="proFrm">
+						<div class="card-body pro">
+                        	<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">완제품id</span>
+							</div>
+							<input name="productid" class="form-control" readonly/>
+						</div>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">완제품타입</span>
+							</div>
+							<input name="ptype" class="form-control" />
+						</div>	
+						<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">단위</span>
+							</div>
+							<input name="unit" class="form-control" />
+						</div>	
+						<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">제조일</span>
+							</div>
+							<input name="madedate" class="form-control" />
+						</div>	
+						<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">폐기일</span>
+							</div>
+							<input name="deaddate" class="form-control" />
+						</div>	
+						<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">제조수량</span>
+							</div>
+							<input name="manquan" class="form-control" />
+						</div>	
+						<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">현수량</span>
+							</div>
+							<input name="quantity" class="form-control" />
+						</div>	
+						<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">최종수정일</span>
+							</div>
+							<input name="date" class="form-control" readonly/>
+						</div>	
+						</div>
+						<div class="card-body ptype">
+                        	<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">완제품타입</span>
+							</div>
+							<input name="ptype" class="form-control" readonly/>
+						</div>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">제품명</span>
+							</div>
+							<input name="pname" class="form-control" />
+						</div>	
+						<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">단가</span>
+							</div>
+							<input name="price" class="form-control" />
+						</div>	
+						<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">재료1</span>
+							</div>
+							<input name="mat1" class="form-control" />
+						</div>	
+						<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">재료1수량</span>
+							</div>
+							<input name="mat1_vol" class="form-control" />
+						</div>	
+						<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">재료2</span>
+							</div>
+							<input name="mat2" class="form-control" />
+						</div>	
+						<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">재료2수량</span>
+							</div>
+							<input name="mat2_vol" class="form-control" />
+						</div>	
+						<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">재료3</span>
+							</div>
+							<input name="mat3" class="form-control" />
+						</div>	
+						<div class="input-group mb-3">	
+							<div class="input-group-prepend ">
+								<span class="input-group-text  justify-content-center">재료3수량</span>
+							</div>
+							<input name="mat3_vol" class="form-control" />
+						</div>	
+						<button type="button" class="btn btn-success btn-circle" id="uptProBtn"><i class="fas fa-check"></i></button>
+						<button type="button" class="btn btn-danger btn-circle" id="delProBtn"><i class="fas fa-trash"></i></button>
+						</div>
+						</form>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <script src="a00_com/vendor/jquery/jquery.min.js"></script>
+<script>
+var urlParams = location.search.split(/[?&]/).slice(1).map(function(paramPair) {
+    return paramPair.split(/=(.+)?/).slice(0, 2);
+}).reduce(function(obj, pairArray) {
+    obj[pairArray[0]] = pairArray[1];
+    return obj;
+}, {});
+
+
+$(document).ready(function(){
+	var materialid= Number(urlParams.materialid);
+	var productid = Number(urlParams.productid);
+	var ptype = Number(urlParams.ptype);
+	var inbound = Number(urlParams.inbound);
+	var outbound = Number(urlParams.outbound);
+	$(".pro").hide();$(".mat").hide();
+	if (!isNaN(materialid) && materialid !== 0) {
+        ajaxMat(materialid);
+    } else if (!isNaN(productid) && productid !== 0) {
+        ajaxPro(productid);
+    } else if (!isNaN(ptype) && ptype !== 0) {
+        ajaxPtype(ptype);
+    } else if (!isNaN(inbound) && inbound !== 0) {
+        ajaxInb(inbound);
+    } else if (!isNaN(outbound) && outbound !== 0) {
+        ajaxOutb(outbound);
+    } 
+	$("#delMatBtn").click(function(){
+		if(confirm("내용을 삭제하시겠습니까?")){
+			ajaxDelete("deleteMat","#matFrm")
+		}
+	})
+	$("#uptMatBtn").click(function(){
+		if(confirm("내용을 수정하시겠습니까?")){
+			ajaxUpdate("updateMat","#matFrm")
+		}
+	})
+})
+function ajaxMat(id){
+	$("#lothead").text("자재 세부사항");$("#lotlist").text("material "+id+" Detail");
+	$(".mat").show();$(".pro").hide();$(".ptype").hide();
+	$.ajax({
+		url:"/ajaxMatDetail?id="+id,
+		type:"GET",
+		dataType:"json",
+		success:function(data){
+			$(data).each(function(idx, m){
+				var ckdate = m.lastck;
+				  var dateObj = new Date(ckdate);
+				  var formattedDate = dateObj.toLocaleString('ko-KR', { 
+				    year: 'numeric', 
+				    month: '2-digit', 
+				    day: '2-digit', 
+				  });
+					$("[name=materialid]").val(m.materialid);	
+					$("[name=mname]").val(m.mname);	
+					$("[name=unit]").val(m.unit);	
+					$("[name=safety]").val(m.safety);	
+					$("[name=matdate]").val(formattedDate);	
+			})
+		},
+		error:function(err){
+			console.log(err)
+		}
+	})	
+}
+function ajaxPro(id){
+	$("#lothead").text("완제품 세부사항");$("#lotlist").text("product "+id+" Detail");
+	$(".mat").hide();$(".pro").show();$(".ptype").hide();
+	$.ajax({
+		url:"/ajaxProDetail?id="+id,
+		type:"GET",
+		dataType:"json",
+		success:function(data){
+			$(data).each(function(idx, p){
+				var ckdate = p.lastck;
+				var mandate = p.mandate;
+				var exdate = p.expired;
+				var dateObj = new Date(ckdate);
+				var mdateObj = new Date(mandate);
+				var edateObj = new Date(exdate);
+				var formattedDate = dateObj.toLocaleString('ko-KR', { 
+				    year: 'numeric', 
+				    month: '2-digit', 
+				    day: '2-digit', 
+				});
+				var mformattedDate = mdateObj.toLocaleString('ko-KR', { 
+				    year: 'numeric', 
+				    month: '2-digit', 
+				    day: '2-digit', 
+				});
+				var eformattedDate = edateObj.toLocaleString('ko-KR', { 
+				    year: 'numeric', 
+				    month: '2-digit', 
+				    day: '2-digit', 
+				});
+					$("[name=productid]").val(p.productid);	
+					$("[name=ptype]").val(p.ptype);	
+					$("[name=madedate]").val(mformattedDate);	
+					$("[name=deaddate]").val(eformattedDate);	
+					$("[name=unit]").val(p.unit);	
+					$("[name=manquan]").val(p.manquan);	
+					$("[name=quantity]").val(p.quantity);	
+					$("[name=date]").val(formattedDate);	
+			})
+		},
+		error:function(err){
+			console.log(err)
+		}
+	})	
+}
+function ajaxPtype(id){
+	$("#lothead").text("완제품 타입 세부사항");$("#lotlist").text("Product Type "+id+" Detail");
+	$(".mat").hide();$(".pro").hide();$(".ptype").show();
+	$.ajax({
+		url:"/ajaxPtypeDetail?id="+id,
+		type:"GET",
+		dataType:"json",
+		success:function(data){
+			$(data).each(function(idx, p){
+					$("[name=ptype]").val(p.ptype);	
+					$("[name=pname]").val(p.pname);	
+					$("[name=price]").val(p.price);	
+					$("[name=mat1]").val(p.mat1);	
+					$("[name=mat1_vol]").val(p.mat1_vol);	
+					$("[name=mat2]").val(p.mat2);	
+					$("[name=mat2_vol]").val(p.mat2_vol);	
+					$("[name=mat3]").val(p.mat3);	
+					$("[name=mat3_vol]").val(p.mat3_vol);	
+			})
+		},
+		error:function(err){
+			console.log(err)
+		}
+	})	
+}
+function ajaxInb(id){
+	$("#lothead").text("자재 세부사항");$("#lotlist").text("material "+id+" Detail");
+	$(".mat").show();$(".pro").hide();$(".ptype").hide();
+	$.ajax({
+		url:"/ajaxMatDetail?id="+id,
+		type:"GET",
+		dataType:"json",
+		success:function(data){
+			$(data).each(function(idx, m){
+				var ckdate = m.lastck;
+				  var dateObj = new Date(ckdate);
+				  var formattedDate = dateObj.toLocaleString('ko-KR', { 
+				    year: 'numeric', 
+				    month: '2-digit', 
+				    day: '2-digit', 
+				  });
+					$("[name=materialid]").val(m.materialid);	
+					$("[name=mname]").val(m.mname);	
+					$("[name=unit]").val(m.unit);	
+					$("[name=safety]").val(m.safety);	
+					$("[name=matdate]").val(formattedDate);	
+			})
+		},
+		error:function(err){
+			console.log(err)
+		}
+	})	
+}function ajaxOutb(id){
+	$("#lothead").text("자재 세부사항");$("#lotlist").text("material "+id+" Detail");
+	$(".mat").show();$(".pro").hide();$(".ptype").hide();
+	$.ajax({
+		url:"/ajaxMatDetail?id="+id,
+		type:"GET",
+		dataType:"json",
+		success:function(data){
+			$(data).each(function(idx, m){
+				var ckdate = m.lastck;
+				  var dateObj = new Date(ckdate);
+				  var formattedDate = dateObj.toLocaleString('ko-KR', { 
+				    year: 'numeric', 
+				    month: '2-digit', 
+				    day: '2-digit', 
+				  });
+					$("[name=materialid]").val(m.materialid);	
+					$("[name=mname]").val(m.mname);	
+					$("[name=unit]").val(m.unit);	
+					$("[name=safety]").val(m.safety);	
+					$("[name=matdate]").val(formattedDate);	
+			})
+		},
+		error:function(err){
+			console.log(err)
+		}
+	})	
+}
+function ajaxDelete(url,form){
+	$.ajax({
+		url:url,
+		type:"GET",
+		data:$(form).serialize(),
+		dataType:"text",
+		success:function(data){
+			console.log(data);
+			var msg = data;
+			alert(msg+"\n리스트 화면으로 돌아갑니다.")
+			location.href="lot"
+		},
+		error:function(err){
+			console.log(err)
+		}
+	})
+}
+
+function ajaxUpdate(url,form){
+	$.ajax({
+		url:url,
+		type:"post",
+		data:$(form).serialize(),
+		dataType:"text",
+		success:function(data){
+			var msg = data;
+			alert(msg)
+		},
+		error:function(err){
+			console.log(err)
+		}
+	})
+}
+</script>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="/login">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="a00_com/vendor/jquery/jquery.min.js"></script>
+    <script src="a00_com/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="a00_com/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="a00_com/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="a00_com/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="a00_com/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="a00_com/js/demo/datatables-demo.js"></script>
+
+</body>
+
+</html>

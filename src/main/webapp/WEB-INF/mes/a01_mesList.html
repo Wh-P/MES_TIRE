@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/springweb/a00_com/bootstrap.min.css" >
+<link rel="stylesheet" href="/springweb/a00_com/jquery-ui.css" >
+<script src="/springweb/a00_com/jquery.min.js"></script>
+<script src="/springweb/a00_com/bootstrap.min.js"></script>
+<script src="/springweb/a00_com/jquery-ui.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		 $('#frm01').on('keydown', function (e) {
+	            if (e.key === 'Enter') {
+	                e.preventDefault(); // 기본 동작 취소
+	            }
+	        });	
+	        ajaxList();
+	        $("[name=job],[name=ename]").keyup(function(){
+	        	if(event.keyCode==13){
+	        		ajaxList()
+	        	}
+	        })
+			$("#schBtn").click(function(){
+				ajaxList()
+			})
+			
+			$("#regBtn").click(function(){
+				$("#frm02 [name=empno]").prop("readonly",false)
+				$("#frm02")[0].reset()
+				$("#exampleModalLongTitle").text("사원정보등록")
+				// 기능버튼..(등록버튼 보이기), 수정삭제버튼 보이지 않게 처리..
+				$("#mesRegBtn").show()
+				$("#mesUptBtn").hide()
+				$("#mesDelBtn").hide()
+			})
+			
+			$("#mesRegBtn").click(function(){
+			if(confirm("등록하시겠습니까?")){
+				insertMesempAjax()
+			}			
+		})
+			
+			$("#mesUptBtn").click(function(){
+			if(confirm("수정하시겠습니까?")){
+				uptMesempAjax()
+			}			
+		})
+		$(".clsBtn").click(function(){
+			ajaxList()
+		})
+	});
+	
+	function ajaxList(){
+		$.ajax({
+			url:"/springweb/mesList.do",
+			type:"post",
+			data:$("#frm01").serialize(),
+			dataType:"json",
+			success:function(data){
+				console.log(data.mesList)
+				var addHTML=""
+				$(data.mesList).each(function(idx, Mesemp){
+					addHTML+=`<tr align="center" ondblclick="goPage(${Mesemp.empno})">
+									<td>${Mesemp.empno}</td>				
+									<td>${Mesemp.mgr}</td>
+									<td>${Mesemp.auth}</td>
+									<td>${Mesemp.job}</td>
+									<td>${Mesemp.ename}</td>
+									<td>${Mesemp.pnumber}</td>
+									<td>${Mesemp.dept}</td>
+									<td>${Mesemp.deptno}</td>`					
+				})
+				console.log(addHTML)
+				$("tbody").html(addHTML)
+			},
+			error:function(err){
+				console.log(err)
+			}
+		})	
+	}
+	 
+	function goPage(empno){
+		$("#regBtn").click()
+		$("#exampleModalLongTitle").text("사원정보상세")
+		$("#mesDelBtn").hide()
+		$("#mesUptBtn").show()
+		$("#mesRegBtn").show()	
+		$("#frm02 [name=empno]").prop("readonly",true)
+		getMesAjax(empno)
+	}
+	//getMesAjax.do
+	function getMesAjax(empno){
+		$.ajax({
+			url:"/springweb/getMesAjax.do",
+			type:"get",
+			data:"empno="+empno,
+			dataType:"json",
+			success:function(data){
+				var mesemp = data.mesemp
+				console.log(mesemp)
+				$("#frm02 [name=empno]").val(mesemp.empno)
+				$("#frm02 [name=mgr]").val(mesemp.mgr)
+				$("#frm02 [name=auth]").val(mesemp.auth)
+				$("#frm02 [name=job]").val(mesemp.job)
+				$("#frm02 [name=ename]").val(mesemp.ename)
+				$("#frm02 [name=pnumber]").val(mesemp.pnumber)
+				$("#frm02 [name=dept]").val(mesemp.dept)
+				$("#frm02 [name=deptno]").val(mesemp.deptno)
+			},
+			error:function(err){
+				console.log(err)
+			}
+		})	
+	}	
+	//insertMesempAjax
+	function insertMesempAjax(){
+		$.ajax({
+			url:"/springweb/insertMesempAjax.do",
+			type:"post",
+			data:$("#frm02").serialize(),
+			dataType:"json",
+			success:function(data){
+				if(!confirm(data.msg+"\n계속 등록하시겠습니까?")){
+					$("#clsBtn").click();
+				}
+				$("#frm02")[0].reset();// 입력데이터 초기화
+				ajaxList()//등록 이후 리스트 출력..
+			},
+			error:function(err){
+				console.log(err)
+			}
+		})	
+	}
+	//uptMesempAjax.do
+	function uptMesempAjax(){
+		$.ajax({
+			url:"/springweb/uptMesempAjax.do",
+			type:"post",
+			data:$("#frm02").serialize(),
+			dataType:"json",
+			success:function(data){
+				alert(data.msg)
+				var mesemp = data.mesemp
+				$("#frm02 [name=empno]").val(mesemp.empno)
+				$("#frm02 [name=mgr]").val(mesemp.mgr)
+				$("#frm02 [name=auth]").val(mesemp.auth)
+				$("#frm02 [name=job]").val(mesemp.job)
+				$("#frm02 [name=ename]").val(mesemp.ename)
+				$("#frm02 [name=pnumber]").val(mesemp.pnumber)
+				$("#frm02 [name=dept]").val(mesemp.dept)
+				$("#frm02 [name=deptno]").val(mesemp.deptno)
+						
+			},
+			error:function(err){
+				console.log(err)
+			}
+		})	
+	}	
+	//deleteMesemp
+	
+</script>
+</head>
+
+<body>
+<div class="jumbotron text-center">
+  <h2>MES 회원 리스트</h2>
+  <div align=right>
+  <button class="btn btn-info" id="mainBtn" type="button">메인페이지</button>
+   </div>
+</div>
+<div class="container">
+	<form id="frm01" class="form"  method="post">
+  	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+	    <input class="form-control mr-sm-2" placeholder="직책" name="job"  />
+	    <input class="form-control mr-sm-2" placeholder="사원명" name="ename" />
+	    <button class="btn btn-info" id="schBtn" type="submit">Search</button>
+	    <button class="btn btn-info" id="regBtn" type="button" data-toggle="modal"
+	    data-target="#exampleModalCenter">등록</button>
+ 	</nav>
+	</form>
+   <table class="table table-hover table-striped">
+   	<col width="12%">
+   	<col width="12%">
+   	<col width="12%">
+   	<col width="12%">
+   	<col width="12%">
+   	<col width="15%">
+   	<col width="12%">
+   	<col width="12%">
+    <thead>
+    
+      <tr class="table-success text-center">
+        <th>사원번호</th>
+        <th>관리자번호</th>
+        <th>권한</th>
+        <th>직책</th>
+        <th>사원명</th>
+        <th>핸드폰번호</th>
+        <th>부서명</th>
+        <th>부서번호</th>           
+      </tr>
+    </thead>	
+    <tbody>
+      </tbody>
+	</table>    
+    
+</div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">사원 등록</h5>
+        <button type="button" class="clsBtn" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+		<form id="frm02" class="form"  method="post">
+		<div class="row">
+	      <div class="col">
+	        <input type="text" class="form-control" placeholder="사원번호 입력" name="empno">
+	      </div>
+	       <div class="col">
+	        <input type="text" class="form-control" placeholder="관리자번호 입력" name="mgr">
+	      </div>
+	     </div>		
+	     <div class="row">     
+	      <div class="col">
+	      <select class="form-control" name="auth" placeholder="auth">
+	       <option value="일반 사용자">일반 사용자</option>
+	       <option value="관리자">관리자</option>
+	       </select>
+	      </div>	      
+	      <div class="col">
+	      <select class="form-control" name="job" placeholder="job">
+	       <option value="사원">사원</option>
+	       <option value="대리">대리</option>
+	       <option value="과장">과장</option>
+	       <option value="팀장">팀장</option>
+	       </select>
+	      </div>
+	     </div>
+	     <div class="row">
+	      <div class="col">
+	        <input type="text" class="form-control" placeholder="사원명 입력" name="ename">
+	      </div>
+	      <div class="col">
+	        <input type="text" class="form-control" placeholder="010-xxxx-xxxx" name="pnumber">
+	      </div>
+	     </div>	
+	     <div class="row">
+	      <div class="col">
+	        <input type="text" class="form-control" placeholder="부서명 입력" name="dept">
+	      </div>
+	      <div class="col">
+	        <input type="text" class="form-control" placeholder="부서번호 입력" name="deptno">
+	      </div>
+	     </div>	     
+	    </form> 
+      </div>
+      <div class="modal-footer">
+   
+       <button type="button" class="btn btn-success" id="mesRegBtn">등록</button>
+        <button type="button" class="btn btn-primary" id="mesUptBtn">수정</button>
+        <button type="button" class="btn btn-warning" id="mesDelBtn">삭제</button>
+        <button type="button" class="clsBtn btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
