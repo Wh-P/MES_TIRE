@@ -79,7 +79,7 @@
 
 <br>
 
-### 구현화면/내용
+## 구현화면/내용
 
 1.Main 화면
 ![tire-schedule](https://github.com/user-attachments/assets/e0cd3eb4-b920-40cd-bb3d-f8ac560f1cc4)
