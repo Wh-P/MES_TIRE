@@ -91,3 +91,23 @@
 -bootstrap Calendar 를 사용하여 해당 기능을 구현하였습니다  <br>
 -Javascript 의 ajax  기능을 사용하여 api 데이터를 불러와 기능을 구현하였습니다.<br>
 <br>
+
+
+<h3>3.완제품/부자재 발주관리 화면</h3>
+
+
+1)![order](https://github.com/user-attachments/assets/b0fbc4b8-a4e1-4851-8604-31d2ab7a2127)
+
+
+2)![order(2)](https://github.com/user-attachments/assets/d50d0508-c9a0-4771-89ed-4cac93b74332)
+
+
+
+
+#### <상세설명>
+<br>
+-스프링부트를 이용해 데이터의 내용을 json 형태로 가지고 온뒤, mapping 을 통해 api화 시켰습니다  <br>
+-Javascript 의 ajax  기능을 사용하여 api 데이터를 불러와 기능을 구현하였습니다.<br>
+-가져오기 외에 update delete 기능을 추가하여 페이지 에서 전송내용을 서버에 전달하였습니다.
+<br>
+
