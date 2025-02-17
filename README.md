@@ -79,7 +79,7 @@
 
 <br>
 
-## 구현화면/내용
+## 5.구현화면/내용
 
 <h3>1.Main 화면</h3>
 
@@ -92,4 +92,13 @@
 -piechart,AreaChart 를 활용하였습니다.<br>
 <br>
 
+<h3>1.Main 화면</h3>
 
+![tire-schedule](https://github.com/user-attachments/assets/e0cd3eb4-b920-40cd-bb3d-f8ac560f1cc4)
+
+
+#### <상세설명>
+<br>
+-bootstrap 을 활용하여 전반적인 내용의 스타일링을 하였습니다 <br>
+-piechart,AreaChart 를 활용하였습니다.<br>
+<br>
