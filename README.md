@@ -5,7 +5,7 @@
 - 배포 URL : (팀원간 비용 문제로 배포 중단)
 
 ## 시연 영상
-[![시연 영상](https://img.youtube.com/vi/TksVHQmNdAo/maxresdefault.jpg)]([https://www.youtube.com/watch?v=TksVHQmNdAo](https://youtu.be/x70LQrh7-l0))
+https://youtu.be/1sEOsvN_loM
 
 
 
@@ -62,7 +62,7 @@
 
 ### 박우혁
 - **기능**
-    -MES 생산 공정의 실시간 상황들과, 생산 재고량 들을 나타내는 역할을 맡았습니다.
+    -MES 생산 공정의 실시간 상황들과,발주 일정에 맞춘  생산계획을 bootstrap 캘린더 기능을 통해 세우고, 발주일정,부자재 발주 일정등을 삭제, 하는 기능을 구현 하였습니다.
 
 <br>
 
