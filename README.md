@@ -112,7 +112,7 @@
 <br>
 <br>
 
-## 테이블 구조/설계
+## 6.테이블 구조/설계
 
 ![tables](https://github.com/user-attachments/assets/35754dde-6382-4006-80b1-abab944f0179)
 
