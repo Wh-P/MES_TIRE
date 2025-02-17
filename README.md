@@ -70,8 +70,8 @@
 
 <h2>5-1.Main 화면</h2>
 
-<h3>각 공정에서 만들어지는 공정별생산량,부자재 재고 등을 실시간 으로 나타내기 위해 <br>
-BOOTSTRAP 의 각 차트(card,pie,area)를 활용하였습니다 </h3>
+<h3>각 공정에서 만들어지는 공정별생산량,부자재 재고 등을 실시간 으로 나타내기 위해,<br>
+BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 ![main_tire](https://github.com/user-attachments/assets/3ede75d2-4376-4112-8b2a-447eca06bf88)
 
