@@ -81,7 +81,8 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 <h3>각 달력의 날짜 를 클릭시, MODAL 창 기능을 통해 서버에 입력된 데이터를 전송 합니다</h3>
 
-![schedule_process](https://github.com/user-attachments/assets/865c41f6-5cee-42ba-9b8e-136bb1b9e2f4)
+![schedule_process](https://github.com/user-attachments/assets/bad3ed28-785f-4e3b-a572-81082edac9aa)
+
 
 
 <h4>생산일정 등록 HTML 코드(MODAL 창 ) </h4>
