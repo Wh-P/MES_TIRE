@@ -82,7 +82,8 @@
 ### 구현화면/내용
 
 1.Main 화면
-![tire-schedule(1)](https://github.com/user-attachments/assets/22b7ddcd-12a2-4c4b-935c-4a4fe032ad35)
+![tire-schedule](https://github.com/user-attachments/assets/e0cd3eb4-b920-40cd-bb3d-f8ac560f1cc4)
+
 
 #### <상세설명>
 <br>
