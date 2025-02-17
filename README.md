@@ -104,11 +104,17 @@
 
 
 
-
 #### <상세설명>
 <br>
 -스프링부트를 이용해 데이터의 내용을 json 형태로 가지고 온뒤, mapping 을 통해 api화 시켰습니다  <br>
 -Javascript 의 ajax  기능을 사용하여 api 데이터를 불러와 기능을 구현하였습니다.<br>
 -가져오기 외에 update delete 기능을 추가하여 페이지 에서 전송내용을 서버에 전달하였습니다.
 <br>
+<br>
+
+## 테이블 구조/설계
+
+![tables](https://github.com/user-attachments/assets/35754dde-6382-4006-80b1-abab944f0179)
+
+
 
