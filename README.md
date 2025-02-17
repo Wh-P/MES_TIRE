@@ -1,14 +1,9 @@
 ## MES 프로젝트 "Wind tire"
-![tire-main](https://github.com/user-attachments/assets/5297c691-f70f-4b4e-bf4f-77f3f570a649)
+![tire-main](https://github.com/user-attachments/assets/a47f7536-9cc4-4843-a4af-d9bc4430cfd6)
 
-
-- 배포 URL : (팀원간 비용 문제로 배포 중단)
 
 ## 시연 영상
 [![시연 영상](https://img.youtube.com/vi/1sEOsvN_loM/maxresdefault.jpg)](https://www.youtube.com/watch?v=1sEOsvN_loM)
-
-
-
 
 <br>
 
