@@ -75,6 +75,18 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 ![main_tire](https://github.com/user-attachments/assets/3ede75d2-4376-4112-8b2a-447eca06bf88)
 
+<h3>CARD 차트 코드</h3>
+
+![card-chart_code](https://github.com/user-attachments/assets/f1b32ef1-0965-4a90-bffb-203f15f5f9f0)
+
+<h3>PIE 차트 코드</h3>
+
+![Pie-chart-code](https://github.com/user-attachments/assets/3ca0b2ae-292c-46cf-bdf8-e08f7017e241)
+
+
+<h3>AREA 차트 코드</h3>
+
+![area_chart_code](https://github.com/user-attachments/assets/d65dfec7-8bb9-49a1-ab69-e64533a33034)
 
 
 <h2>5-2.생산계획 화면(Scheduler)</h2>
