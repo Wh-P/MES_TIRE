@@ -83,7 +83,7 @@
 
 <h2>2.생산계획 화면(Scheduler)</h2>
 
-<h3>각 달력의 날짜 를 클릭시, MODAL 창 기능을 통해 서버에 해당 내용을 <form>데이터 로 전송 합니다</h3>
+<h3>각 달력의 날짜 를 클릭시, MODAL 창 기능을 통해 서버에 입력된 데이터를 전송 합니다</h3>
 
 ![schedule_process](https://github.com/user-attachments/assets/9a4903ff-8a85-44c7-9273-f2867f5aeadc)
 
