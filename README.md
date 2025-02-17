@@ -92,6 +92,13 @@
 
 <h4>html 코드</h4>
 
+![cal_modal_code_html](https://github.com/user-attachments/assets/b7510e63-136b-49fa-a0c0-c3de561ef46c)
+
+<h4>"등록" 버튼 클릭시 ajax 로 처리되는 코드</h4>
+
+![ajax_cal_code](https://github.com/user-attachments/assets/51732de2-72eb-4e1d-842c-a51b1c267b90)
+
+
 
 #### <상세설명>
 <br>
