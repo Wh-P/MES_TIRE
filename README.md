@@ -83,16 +83,15 @@
 
 <h3>2.생산계획 화면(Scheduler)</h3>
 
-<h3>각 달력의 날짜 를 클릭시, MODAL 창 기능을 통해  서버에 해당 내용을  form 데이터 로 전송 합니다</h3>
+<h3>각 달력의 날짜 를 클릭시, MODAL 창 기능을 통해 서버에 해당 내용을 <form>데이터 로 전송 합니다</h3>
 
 ![schedule_process](https://github.com/user-attachments/assets/8e59d7f3-ca1c-4d07-8c13-3eb94e9bdd18)
 
-
-<h4>html 코드</h4>
+<h4>생산일정 등록 HTML 코드(MODAL 창 ) </h4>
 
 ![cal_modal_code_html](https://github.com/user-attachments/assets/b7510e63-136b-49fa-a0c0-c3de561ef46c)
 
-<h4>"등록" 버튼 클릭시 ajax 로 처리되는 코드</h4>
+<h4>"등록" 버튼 클릭시 "AJAX" 로 처리되는 코드</h4>
 
 ![ajax_cal_code](https://github.com/user-attachments/assets/51732de2-72eb-4e1d-842c-a51b1c267b90)
 
