@@ -85,7 +85,7 @@
 
 <h3>각 달력의 날짜 를 클릭시, MODAL 창 기능을 통해 서버에 해당 내용을 <form>데이터 로 전송 합니다</h3>
 
-![schedule_process](https://github.com/user-attachments/assets/8e59d7f3-ca1c-4d07-8c13-3eb94e9bdd18)
+![schedule_process](https://github.com/user-attachments/assets/9a4903ff-8a85-44c7-9273-f2867f5aeadc)
 
 <h4>생산일정 등록 HTML 코드(MODAL 창 ) </h4>
 
