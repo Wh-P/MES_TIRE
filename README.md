@@ -91,14 +91,16 @@
 -bootstrap 을 활용하여 전반적인 내용의 스타일링을 하였습니다 <br>
 -piechart,AreaChart 를 활용하였습니다.<br>
 <br>
+<br>
 
-<h3>1.Main 화면</h3>
 
-![tire-schedule](https://github.com/user-attachments/assets/e0cd3eb4-b920-40cd-bb3d-f8ac560f1cc4)
+<h3>2.생산계획 화면(Scheduler)</h3>
+
+![calendar](https://github.com/user-attachments/assets/63f86c6d-a89d-4430-9627-2d7e9b35722e)
 
 
 #### <상세설명>
 <br>
--bootstrap 을 활용하여 전반적인 내용의 스타일링을 하였습니다 <br>
--piechart,AreaChart 를 활용하였습니다.<br>
+-bootstrap Calendar 를 사용하여 해당 기능을 구현하였습니다  <br>
+-Javascript 의 ajax  기능을 사용하여 api 데이터를 불러와 기능을 구현하였습니다.<br>
 <br>
