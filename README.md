@@ -66,22 +66,18 @@
 
 <br>
 
-## 5.구현화면/내용
+# 5.구현화면/내용
 
-<h3>1.Main 화면</h3>
+<h2>5-1.Main 화면</h2>
+
+<h3>전체 화면</h3>
 
 ![tire-schedule](https://github.com/user-attachments/assets/e0cd3eb4-b920-40cd-bb3d-f8ac560f1cc4)
 
 
-#### <상세설명>
-<br>
--bootstrap 을 활용하여 전반적인 내용의 스타일링을 하였습니다 <br>
--piechart,AreaChart 를 활용하였습니다.<br>
-<br>
-<br>
 
 
-<h2>2.생산계획 화면(Scheduler)</h2>
+<h2>5-2.생산계획 화면(Scheduler)</h2>
 
 <h3>각 달력의 날짜 를 클릭시, MODAL 창 기능을 통해 서버에 입력된 데이터를 전송 합니다</h3>
 
