@@ -87,7 +87,9 @@
 
 
 <h3>각 달력의 날짜 를 클릭시, MODAL 창 기능을 통해  서버에 해당 내용을  form 데이터 로 전송 합니다</h3>
+
 ![cal_modal](https://github.com/user-attachments/assets/ad063a52-e7d5-4deb-9600-b0c7f3c1d65a)
+
 <h4>html 코드</h4>
 
 
