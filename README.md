@@ -1,4 +1,4 @@
-## 설비 고장신고 게시판
+## MES 프로젝트 "Wind tire"
 ![tire-main](https://github.com/user-attachments/assets/5297c691-f70f-4b4e-bf4f-77f3f570a649)
 
 
