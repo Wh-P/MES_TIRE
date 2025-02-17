@@ -5,7 +5,8 @@
 - 배포 URL : (팀원간 비용 문제로 배포 중단)
 
 ## 시연 영상
-https://youtu.be/1sEOsvN_loM
+[![시연 영상](https://img.youtube.com/vi/1sEOsvN_loM/maxresdefault.jpg)](https://www.youtube.com/watch?v=1sEOsvN_loM)
+
 
 
 
