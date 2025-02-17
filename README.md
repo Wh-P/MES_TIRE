@@ -84,4 +84,9 @@
 1.Main 화면
 ![tire-schedule(1)](https://github.com/user-attachments/assets/22b7ddcd-12a2-4c4b-935c-4a4fe032ad35)
 
+<상세설명>
+-bootstrap 을 활용하여 전반적인 내용의 스타일링을 하였습니다
+-piechart,AreaChart 를 활용하였습니다.
+-jsp 파일을 이용해 다른 공정의 현재 상황을 넘겨받는 내용을 구현하였습니다.
+
 
