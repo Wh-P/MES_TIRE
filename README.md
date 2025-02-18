@@ -117,6 +117,20 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 ![purorder_list](https://github.com/user-attachments/assets/c4dd252c-7194-46b4-b7b3-f555c60bbd3a)
 
+<h3>맵핑 주소</h3>
+
+![getinvoiceList](https://github.com/user-attachments/assets/65224543-f7f7-4442-878b-728cdc38bb7e)
+
+
+<h3>맵핑 주소를 통해 불러온 json 객체</h3>
+
+![getinvoiceJson](https://github.com/user-attachments/assets/e165f07c-74ef-4536-8b55-1f4ecce6534b)
+
+
+<h3>사용 된 ajax</h3>
+
+![getinvoiceList_ajax](https://github.com/user-attachments/assets/c2c76bd5-02dc-4e95-a7c9-5ba1ccd0e29f)
+
 
 2)![order(2)](https://github.com/user-attachments/assets/3fd09cc3-4021-4930-a00c-f6c871a881df)
 
