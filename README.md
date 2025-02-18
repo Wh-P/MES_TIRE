@@ -110,15 +110,14 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 ![schedule_process](https://github.com/user-attachments/assets/bad3ed28-785f-4e3b-a572-81082edac9aa)
 
+### &#9312; 상세 설명
+
+![image](https://github.com/user-attachments/assets/0218a493-28e1-4831-b2b5-c6478f5ecaaf)
 
 
-<h3>생산일정 등록 HTML 코드(MODAL 창 ) </h3>
+- "등록" 버튼 클릭시 "AJAX" 로 처리되어집니다
 
-![cal_modal_code_html](https://github.com/user-attachments/assets/b7510e63-136b-49fa-a0c0-c3de561ef46c)
 
-<h3>"등록" 버튼 클릭시 "AJAX" 로 처리되는 코드</h3>
-
-![ajax_cal_code](https://github.com/user-attachments/assets/51732de2-72eb-4e1d-842c-a51b1c267b90)
 
 
 
