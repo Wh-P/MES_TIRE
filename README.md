@@ -127,7 +127,8 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 <h3>등록 버튼을 누르고, 발주서 작성을 띄어진 MODAL 창을 통해 입력값을 작성 하고 "작성" 버튼을 누르면 서버에 전송 됩니다.</h3>
 
-![click_pur2](https://github.com/user-attachments/assets/17d6ef22-c834-40c8-94f9-7f9670e94f33)
+
+![modal_submit_](https://github.com/user-attachments/assets/e9f9f43d-155e-4bd7-92df-722923da0471)
 
 
 <h3>등록 된 후 해당 발주서 리스트를 클릭 시</h3>
