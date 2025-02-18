@@ -121,12 +121,19 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 <h2>5-3.완제품/부자재 발주관리 화면</h3>
 
+<h3>리스트의 "완제품 발주관리" 를 클릭 시 해당 화면이 띄워 집니다</h3>
+
+![click_pur](https://github.com/user-attachments/assets/76cf597d-8b97-4a30-8124-76e20608c18d)
+
+
+
 ![purorder_list](https://github.com/user-attachments/assets/c4dd252c-7194-46b4-b7b3-f555c60bbd3a)
 
 
 <h3>등록 버튼을 누르고, 발주서 작성을 띄어진 MODAL 창을 통해 입력값을 작성 하고 "작성" 버튼을 누르면 서버에 전송 됩니다.</h3>
 
-![modal_submit_](https://github.com/user-attachments/assets/594ce8cb-9c8f-464b-a95a-3a47db80f718)
+![click_pur2](https://github.com/user-attachments/assets/17d6ef22-c834-40c8-94f9-7f9670e94f33)
+
 
 <h3>등록 된 후 해당 발주서 리스트를 클릭 시</h3>
 
