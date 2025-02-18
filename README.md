@@ -79,11 +79,13 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 ### 상세 설명
 
--**card-example**
-
+-**Card-Example**
 
 ![card-exam](https://github.com/user-attachments/assets/cf45ea7c-5803-4ce3-b311-2a8f10c4d9ae)
 
+-**AREA-CHART**
+
+![card-exam](https://github.com/user-attachments/assets/3ef6d84a-dfc0-4e43-bd7f-b15c5bb2394f)
 
 
 <h2>5-2.생산계획 화면(Scheduler)</h2>
