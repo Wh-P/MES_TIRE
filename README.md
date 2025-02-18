@@ -170,6 +170,10 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 ![getinvoiceList_ajax](https://github.com/user-attachments/assets/c2c76bd5-02dc-4e95-a7c9-5ba1ccd0e29f)
 
+![ajax2](https://github.com/user-attachments/assets/fde3d2c3-327a-4166-bcb0-b732a51c4ff3)
+
+![ajax3](https://github.com/user-attachments/assets/4ba90aad-08ea-4889-8322-aa1318c1f733)
+
 
 <h4>등록/수정/삭제 에 필요한 DAO 코드</h4>
 
