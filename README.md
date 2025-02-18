@@ -116,8 +116,12 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 <h2>5-3.완제품/부자재 발주관리 화면</h3>
 
+
+
 <h3>리스트의 "완제품 발주관리" 를 클릭 시 해당 화면이 띄워 집니다</h3>
 
+
+### &#9312; 상세 설명
 ![getPurorderListMain](https://github.com/user-attachments/assets/fceaca52-9366-46f7-8f14-98b7f39c6ccb)
 
 
