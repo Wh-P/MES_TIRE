@@ -25,7 +25,9 @@
   </tr>
   <tr>
     <td align="center"> 박우혁</td>
-    <td align="center"> 생산스케줄 계획/관리, 완제품/부자재 발주서 관리 기능 담당 </td>
+  </tr>
+  <tr>
+     <td align="center"> 생산스케줄 계획/관리, 완제품/부자재 발주서 관리 기능 담당 </td>
   </tr>
 </table>
 </div>
