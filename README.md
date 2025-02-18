@@ -70,7 +70,7 @@
 
 ## 5-1.Main 화면 **[Schedule_Order.jsp]** 
 
-<h3>각 공정에서 만들어지는 공정별생산량,부자재 재고 등을 실시간 으로 나타내기 위해,<br>
+<h3>각 공정에서 만들어지는 공정별 생산량,부자재 재고 등을 실시간 으로 나타내기 위해,<br>
 BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 
@@ -79,14 +79,17 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 ### &#9312; 상세 설명
 
--**Card-Example**
+**Card-Example**
 
 ![card-exam](https://github.com/user-attachments/assets/cf45ea7c-5803-4ce3-b311-2a8f10c4d9ae)
 
--**AREA-CHART**
+**AREA-CHART**
 
 ![area-chart](https://github.com/user-attachments/assets/62c0c2ec-17fa-47d0-a17c-1e07b152ea8c)
 
+**PIE-CHART**
+ 
+![piechart](https://github.com/user-attachments/assets/2db04436-c822-45a6-a56b-f789c56b2df7)
 
 
 
