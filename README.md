@@ -68,13 +68,14 @@
 
 # 5.구현화면/상세코드
 
-<h2>5-1.Main 화면<strong>[Schedule_Order.jsp]</strong></h2>
+<h2>5-1.Main 화면 **[Schedule_Order.jsp]** </h2>
 
 <h3>각 공정에서 만들어지는 공정별생산량,부자재 재고 등을 실시간 으로 나타내기 위해,<br>
 BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 
-<p>card-examp</p>
+**card-example**
+
 ![main_tire](https://github.com/user-attachments/assets/cd7b859e-7ddc-4e01-a5ed-b49c082f64f9)
 
 
