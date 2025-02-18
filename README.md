@@ -68,7 +68,7 @@
 
 # 5.구현화면/상세코드
 
-<h2>5-1.Main 화면 **[Schedule_Order.jsp]** </h2>
+## 5-1.Main 화면 **[Schedule_Order.jsp]** 
 
 <h3>각 공정에서 만들어지는 공정별생산량,부자재 재고 등을 실시간 으로 나타내기 위해,<br>
 BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
