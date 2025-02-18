@@ -92,7 +92,7 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 <h2>5-2.생산계획 화면(Scheduler)</h2>
 
-<h3>각 달력의 날짜 를 클릭시, MODAL 창 기능을 통해 서버에 입력된 데이터를 전송 합니다</h3>
+<h3>리스트의 생산계획 관리를 클릭 시 <br>  해당 페이지가 출력이 되고 달력의 날짜 를 클릭시 <br> MODAL 창 기능을 통해 서버에 입력된 데이터를 전송 합니다</h3>
 
 ![schedule_process](https://github.com/user-attachments/assets/bad3ed28-785f-4e3b-a572-81082edac9aa)
 
@@ -114,7 +114,6 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 <h2>5-3.완제품/부자재 발주관리 화면</h3>
 
-
 ![purorder_list](https://github.com/user-attachments/assets/c4dd252c-7194-46b4-b7b3-f555c60bbd3a)
 
 <h3>맵핑 주소</h3>
@@ -132,7 +131,7 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 ![getinvoiceList_ajax](https://github.com/user-attachments/assets/c2c76bd5-02dc-4e95-a7c9-5ba1ccd0e29f)
 
 
-2)![order(2)](https://github.com/user-attachments/assets/3fd09cc3-4021-4930-a00c-f6c871a881df)
+<h3>등록 버튼을 누르고, 발주서 작성을 띄어진 MODAL 창을 통해 입력값을 작성 하고 등록 버튼을 누르면  서버에 전송 됩니다.</h3>
 
 
 
