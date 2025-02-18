@@ -89,7 +89,7 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 **PIE-CHART**
  
-![piechart](https://github.com/user-attachments/assets/2db04436-c822-45a6-a56b-f789c56b2df7)
+![piechart](https://github.com/user-attachments/assets/d518ea62-2c39-4746-99dc-8ddda0f4db25)
 
 
 
