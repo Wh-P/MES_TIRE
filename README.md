@@ -105,19 +105,12 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 <h3>리스트의 "생산계획 관리" 를 클릭 시 <br>  해당 페이지가 출력이 되고 달력의 날짜 를 클릭시 <br> MODAL 창 기능을 통해 서버에 입력된 데이터를 전송 합니다</h3>
 
-
-<h3>클릭 시 보여지는 생산계획 관리 화면입니다</h3>
-
-![schedule_process](https://github.com/user-attachments/assets/bad3ed28-785f-4e3b-a572-81082edac9aa)
-
 ### &#9312; 상세 설명
 
 ![image](https://github.com/user-attachments/assets/0218a493-28e1-4831-b2b5-c6478f5ecaaf)
 
 
 - "등록" 버튼 클릭시 "AJAX" 로 처리되어집니다
-
-
 
 
 
