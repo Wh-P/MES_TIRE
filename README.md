@@ -137,7 +137,8 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 ![click](https://github.com/user-attachments/assets/8bf4df4d-d3f5-4386-bbce-1e28e2895b80)
 
 
-<h3>해당 발주서의 리스트의 내용을 수정 한 뒤 수정, 삭제 버튼을 누르면<br>
+<h3>해당 발주서의 내용을 수정 할수 있는 모달창안에 정보가 보이고 <br>
+내용을 수정 한뒤 수정, 삭제 버튼을 누르면<br>
 해당 기능이 동작하게 하였습니다.</h3>
 
 ![purorder](https://github.com/user-attachments/assets/e7f11819-38e1-4950-be45-2412fecc8ec1)
