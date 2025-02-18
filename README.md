@@ -4,6 +4,7 @@
 
 ## 시연 영상
 [![시연 영상](https://img.youtube.com/vi/1sEOsvN_loM/maxresdefault.jpg)](https://www.youtube.com/watch?v=1sEOsvN_loM)
+### 사진을 클릭 시 영상실행 되어집니다
 
 <br>
 
