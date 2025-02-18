@@ -123,6 +123,32 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 ![purorder_list](https://github.com/user-attachments/assets/c4dd252c-7194-46b4-b7b3-f555c60bbd3a)
 
+
+<h3>등록 버튼을 누르고, 발주서 작성을 띄어진 MODAL 창을 통해 입력값을 작성 하고 "작성" 버튼을 누르면 서버에 전송 됩니다.</h3>
+
+![modal_submit_](https://github.com/user-attachments/assets/594ce8cb-9c8f-464b-a95a-3a47db80f718)
+
+<h3>등록 된 후 해당 발주서 리스트를 클릭 시</h3>
+
+![click](https://github.com/user-attachments/assets/1c616c07-ee36-40a8-a2c6-9c6f4a9d00d3)
+
+<h3>해당 발주서의 리스트의 내용을 수정 한 뒤 수정, 삭제 버튼을 누르면<br>
+해당 기능이 동작하게 하였습니다.</h3>
+
+![click2](https://github.com/user-attachments/assets/5feeed34-5b1f-4606-a6e8-10fcc996730b)
+
+<h3>해당 발주 리스트는 "생산 계획 관리"에서도 확인이 가능하며<br>
+발주 리스트에 맞게 생산 스케줄을 작성할 수 있게 됩니다.</h3>
+
+![click3](https://github.com/user-attachments/assets/a6ba4c23-a320-4a7d-89fb-efca0e367fb7)
+
+<h3>클릭 시 해당 발주 리스트를 확인 하실 수 있습니다. </h3>
+
+![click4](https://github.com/user-attachments/assets/dec2b60a-8cd7-4d4f-a2d3-9d22649af1c6)
+
+
+##상세 코드 내역
+
 <h3>맵핑 주소</h3>
 
 ![getinvoiceList](https://github.com/user-attachments/assets/65224543-f7f7-4442-878b-728cdc38bb7e)
@@ -133,24 +159,19 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 ![getinvoiceJson](https://github.com/user-attachments/assets/e165f07c-74ef-4536-8b55-1f4ecce6534b)
 
 
-<h3>사용 된 ajax</h3>
+<h3>ajax</h3>
 
 ![getinvoiceList_ajax](https://github.com/user-attachments/assets/c2c76bd5-02dc-4e95-a7c9-5ba1ccd0e29f)
 
 
-<h3>등록 버튼을 누르고, 발주서 작성을 띄어진 MODAL 창을 통해 입력값을 작성 하고 "작성" 버튼을 누르면 서버에 전송 됩니다.</h3>
+<h4>등록/수정/삭제 에 필요한 DAO 코드</h4>
 
-![modal_submit_](https://github.com/user-attachments/assets/594ce8cb-9c8f-464b-a95a-3a47db80f718)
+![dao_list](https://github.com/user-attachments/assets/178d8a63-48a8-4a0e-aad5-9fcc8d8295dc)
+
+![dao_list2](https://github.com/user-attachments/assets/e23f6bbd-75a0-41cf-9657-28bd382d64ee)
 
 
 
-#### <상세설명>
-<br>
--스프링부트를 이용해 데이터의 내용을 json 형태로 가지고 온뒤, mapping 을 통해 api화 시켰습니다  <br>
--Javascript 의 ajax  기능을 사용하여 api 데이터를 불러와 기능을 구현하였습니다.<br>
--가져오기 외에 update delete 기능을 추가하여 페이지 에서 전송내용을 서버에 전달하였습니다.
-<br>
-<br>
 
 ## 6.테이블 구조/설계
 
