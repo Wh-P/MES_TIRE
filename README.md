@@ -152,33 +152,6 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 ![click4](https://github.com/user-attachments/assets/dec2b60a-8cd7-4d4f-a2d3-9d22649af1c6)
 
 
-<h2>상세 코드 내역</h2>
-
-<h3>맵핑 주소</h3>
-
-![getinvoiceList](https://github.com/user-attachments/assets/65224543-f7f7-4442-878b-728cdc38bb7e)
-
-
-<h3>맵핑 주소를 통해 불러온 json 객체</h3>
-
-![getinvoiceJson](https://github.com/user-attachments/assets/e165f07c-74ef-4536-8b55-1f4ecce6534b)
-
-
-<h3>ajax</h3>
-
-![getinvoiceList_ajax](https://github.com/user-attachments/assets/c2c76bd5-02dc-4e95-a7c9-5ba1ccd0e29f)
-
-![ajax2](https://github.com/user-attachments/assets/fde3d2c3-327a-4166-bcb0-b732a51c4ff3)
-
-![ajax3](https://github.com/user-attachments/assets/4ba90aad-08ea-4889-8322-aa1318c1f733)
-
-
-<h4>등록/수정/삭제 에 필요한 DAO 코드</h4>
-
-![dao_list](https://github.com/user-attachments/assets/178d8a63-48a8-4a0e-aad5-9fcc8d8295dc)
-
-![dao_list2](https://github.com/user-attachments/assets/e23f6bbd-75a0-41cf-9657-28bd382d64ee)
-
 
 <br>
 <br>
