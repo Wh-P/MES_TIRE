@@ -110,11 +110,6 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 ![image](https://github.com/user-attachments/assets/0218a493-28e1-4831-b2b5-c6478f5ecaaf)
 
-
-- "등록" 버튼 클릭시 "AJAX" 로 처리되어집니다
-
-
-
 <br>
 
 
@@ -123,7 +118,8 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 <h3>리스트의 "완제품 발주관리" 를 클릭 시 해당 화면이 띄워 집니다</h3>
 
-![click_pur](https://github.com/user-attachments/assets/76cf597d-8b97-4a30-8124-76e20608c18d)
+
+![getPurorderListMain](https://github.com/user-attachments/assets/56d05514-66c7-4ae0-abaa-9c188a455f17)
 
 
 
