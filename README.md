@@ -138,8 +138,9 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 ![getinvoiceList_ajax](https://github.com/user-attachments/assets/c2c76bd5-02dc-4e95-a7c9-5ba1ccd0e29f)
 
 
-<h3>등록 버튼을 누르고, 발주서 작성을 띄어진 MODAL 창을 통해 입력값을 작성 하고 "등록"버튼을 누르면  서버에 전송 됩니다.</h3>
+<h3>등록 버튼을 누르고, 발주서 작성을 띄어진 MODAL 창을 통해 입력값을 작성 하고 "작성" 버튼을 누르면 서버에 전송 됩니다.</h3>
 
+![modal_submit_](https://github.com/user-attachments/assets/594ce8cb-9c8f-464b-a95a-3a47db80f718)
 
 
 
