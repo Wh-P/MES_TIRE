@@ -154,7 +154,7 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 ![click4](https://github.com/user-attachments/assets/dec2b60a-8cd7-4d4f-a2d3-9d22649af1c6)
 
 
-##상세 코드 내역
+<h2>상세 코드 내역</h2>
 
 <h3>맵핑 주소</h3>
 
@@ -182,7 +182,8 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 ![dao_list2](https://github.com/user-attachments/assets/e23f6bbd-75a0-41cf-9657-28bd382d64ee)
 
 
-
+<br>
+<br>
 
 ## 6.테이블 구조/설계
 
