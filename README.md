@@ -98,7 +98,7 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 
 
-<h4>생산일정 등록 HTML 코드(MODAL 창 ) </h4>
+<h2>생산일정 등록 HTML 코드(MODAL 창 ) </h4>
 
 ![cal_modal_code_html](https://github.com/user-attachments/assets/b7510e63-136b-49fa-a0c0-c3de561ef46c)
 
@@ -112,10 +112,10 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 
 
-<h3>3.완제품/부자재 발주관리 화면</h3>
+<h2>5-3.완제품/부자재 발주관리 화면</h3>
 
 
-1)![order](https://github.com/user-attachments/assets/b0fbc4b8-a4e1-4851-8604-31d2ab7a2127)
+![purorder_list](https://github.com/user-attachments/assets/c4dd252c-7194-46b4-b7b3-f555c60bbd3a)
 
 
 2)![order(2)](https://github.com/user-attachments/assets/3fd09cc3-4021-4930-a00c-f6c871a881df)
