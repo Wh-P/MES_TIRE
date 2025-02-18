@@ -133,12 +133,14 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 <h3>등록 된 후 해당 발주서 리스트를 클릭 시</h3>
 
-![click](https://github.com/user-attachments/assets/1c616c07-ee36-40a8-a2c6-9c6f4a9d00d3)
+![click](https://github.com/user-attachments/assets/8bf4df4d-d3f5-4386-bbce-1e28e2895b80)
+
 
 <h3>해당 발주서의 리스트의 내용을 수정 한 뒤 수정, 삭제 버튼을 누르면<br>
 해당 기능이 동작하게 하였습니다.</h3>
 
-![click2](https://github.com/user-attachments/assets/5feeed34-5b1f-4606-a6e8-10fcc996730b)
+![purorder](https://github.com/user-attachments/assets/e7f11819-38e1-4950-be45-2412fecc8ec1)
+
 
 <h3>해당 발주 리스트는 "생산 계획 관리"에서도 확인이 가능하며<br>
 발주 리스트에 맞게 생산 스케줄을 작성할 수 있게 됩니다.</h3>
