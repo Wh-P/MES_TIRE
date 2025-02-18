@@ -74,10 +74,12 @@
 BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 
-**card-example**
-
 ![main_tire](https://github.com/user-attachments/assets/cd7b859e-7ddc-4e01-a5ed-b49c082f64f9)
 
+
+### 상세 설명
+
+![card-exam](https://github.com/user-attachments/assets/cf45ea7c-5803-4ce3-b311-2a8f10c4d9ae)
 
 
 
