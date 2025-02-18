@@ -78,6 +78,9 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 
 ### 상세 설명
+<ul>
+  <li>**card-example </li>
+</ul>
 
 ![card-exam](https://github.com/user-attachments/assets/cf45ea7c-5803-4ce3-b311-2a8f10c4d9ae)
 
