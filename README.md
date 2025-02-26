@@ -34,18 +34,13 @@
 
 <br>
 
-## 1. 개발 환경
-- Tool :Spring Tool Suite 4 
-- 버전 및 이슈관리 : Github, SVN
-<br>
-
-## 2. 채택한 개발 기술
+## 1. 채택한 개발 기술
 
 ![tire-stack](https://github.com/user-attachments/assets/55737e10-2b96-4023-90a6-9cab6f78382f)
 
 <br/>
 
-## 3. 역할 분담
+## 2. 역할 분담
 
 ### 박우혁
 - **기능**
@@ -55,7 +50,7 @@
 
 <br>
 
-## 4. 개발 기간 및 작업 관리
+## 3. 개발 기간 및 작업 관리
 
 ### 개발 기간
 
@@ -72,9 +67,9 @@
 
 <br>
 
-# 5.구현화면/상세코드
+# 4.구현화면/상세코드
 
-## 5-1.Main 화면 **[Schedule_Order.jsp]** 
+## 4-1.Main 화면 **[Schedule_Order.jsp]** 
 
 <h3>각 공정에서 만들어지는 공정별 생산량,부자재 재고 등을 실시간 으로 나타내기 위해,<br>
 BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
@@ -105,7 +100,7 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 
 
-<h2>5-2.생산계획 화면(Scheduler)</h2>
+<h2>4-2.생산계획 화면(Scheduler)</h2>
 
 <h3>리스트의 "생산계획 관리" 를 클릭 시 <br>  해당 페이지가 출력이 되고 달력의 날짜 를 클릭시 <br> MODAL 창 기능을 통해 서버에 입력된 데이터를 전송 합니다</h3>
 
@@ -117,7 +112,7 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 
 
-<h2>5-3.완제품/부자재 발주관리 화면</h3>
+<h2>4-3.완제품/부자재 발주관리 화면</h3>
 
 
 
@@ -160,7 +155,7 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 <br>
 <br>
 
-## 6.테이블 구조/설계
+## 5.테이블 구조/설계
 
 ![tables](https://github.com/user-attachments/assets/35754dde-6382-4006-80b1-abab944f0179)
 
