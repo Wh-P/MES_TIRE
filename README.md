@@ -168,8 +168,8 @@ BOOTSTRAP 의 각 차트(CARD,PIE,AREA)를 활용하였습니다 </h3>
 
 ## 6.테이블 구조/설계
 
+![tab](https://github.com/user-attachments/assets/0f78b0e3-e05e-4fa0-acb3-df9e57329fbc)
 
-![tables](https://github.com/user-attachments/assets/de590940-7d31-45a1-8c14-70dfa8392f75)
 
 
 
